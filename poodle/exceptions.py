@@ -18,7 +18,7 @@ class PoodleError(Exception):
         Args:
             message: A human-readable error message.
             status_code: The HTTP status code from the API response.
-            details: Additional error details (string) from the API response's 'error' field.
+            details: Additional error details from the API response's 'error' field.
         """
         super().__init__(message)
         self.message = message

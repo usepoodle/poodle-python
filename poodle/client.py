@@ -85,7 +85,7 @@ class PoodleClient:
                 timeout=self.timeout,
             )
 
-            # Try to parse JSON response regardless of status code, as API might provide error details
+            # Try to parse JSON response regardless of status code
             try:
                 response_data = response.json()
             except requests.exceptions.JSONDecodeError:
@@ -95,30 +95,30 @@ class PoodleClient:
                 # Ensure 'error' is treated as a string, or None if not present
                 error_details = response_data.get("error")
                 if not isinstance(error_details, (str, type(None))):
-                    error_details = str(error_details) # Convert to string if not already
+                    error_details = str(error_details)
 
                 raise PoodleError(
                     message=response_data.get("message", "Unknown API error"),
                     status_code=response.status_code,
-                    details=error_details, # Use 'error' field for details (string or None)
+                    details=error_details,
                 )
 
             return {
-                "success": response_data.get("success", True), # API returns this
+                "success": response_data.get("success", True),  # API returns this
                 "message": response_data.get("message", "Email queued for sending"),
             }
 
         except requests.exceptions.Timeout:
             raise PoodleError(
                 message="Request timed out",
-                status_code=None, # No HTTP status code for timeout
-                details=None, # Timeout doesn't have API error details
+                status_code=None,  # No HTTP status code for timeout
+                details=None,  # Timeout doesn't have API error details
             )
-        except requests.exceptions.RequestException as e:
+        except requests.exceptions.RequestException:
             raise PoodleError(
                 message="Network error",
-                status_code=None, # No HTTP status code for general network errors
-                details=None, # Network errors don't have API error details
+                status_code=None,  # No HTTP status code for general network errors
+                details=None,  # Network errors don't have API error details
             )
 
     def __enter__(self) -> "PoodleClient":

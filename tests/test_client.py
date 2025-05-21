@@ -29,7 +29,7 @@ def test_send_email_success(mocker):
     mock_response.ok = True
     mock_response.json.return_value = {
         "success": True,
-        "message": "Email queued for sending"
+        "message": "Email queued for sending",
     }
 
     mock_post = mocker.patch("requests.Session.post", return_value=mock_response)
@@ -70,7 +70,9 @@ def test_send_email_api_error_with_string_details(mocker):
     assert exc_info.value.status_code == 400
     assert exc_info.value.message == "Invalid email format"
     assert exc_info.value.details == "The provided 'to' email address is not valid."
-    assert "Details: The provided 'to' email address is not valid." in str(exc_info.value)
+    assert "Details: The provided 'to' email address is not valid." in str(
+        exc_info.value
+    )
 
 
 def test_send_email_api_error_no_json_content(mocker):
@@ -78,10 +80,11 @@ def test_send_email_api_error_no_json_content(mocker):
     mock_response = mocker.Mock()
     mock_response.ok = False
     mock_response.status_code = 500
-    mock_response.content = True # but not valid JSON
+    mock_response.content = True  # but not valid JSON
     # Configure json() to raise an error
-    mock_response.json.side_effect = requests.exceptions.JSONDecodeError("Error", "doc", 0)
-
+    mock_response.json.side_effect = requests.exceptions.JSONDecodeError(
+        "Error", "doc", 0
+    )
 
     mocker.patch("requests.Session.post", return_value=mock_response)
 
@@ -95,7 +98,7 @@ def test_send_email_api_error_no_json_content(mocker):
         )
 
     assert exc_info.value.status_code == 500
-    assert exc_info.value.message == "Unknown API error" # Default message
+    assert exc_info.value.message == "Unknown API error"  # Default message
     assert exc_info.value.details is None
 
 
@@ -108,7 +111,7 @@ def test_send_email_api_error_missing_message_in_json(mocker):
     mock_response.json.return_value = {
         "success": False,
         # "message": "Forbidden", # Message is missing
-        "error": "Permission denied"
+        "error": "Permission denied",
     }
 
     mocker.patch("requests.Session.post", return_value=mock_response)
@@ -123,7 +126,7 @@ def test_send_email_api_error_missing_message_in_json(mocker):
         )
 
     assert exc_info.value.status_code == 403
-    assert exc_info.value.message == "Unknown API error" # Falls back to default
+    assert exc_info.value.message == "Unknown API error"  # Falls back to default
     assert exc_info.value.details == "Permission denied"
 
 
