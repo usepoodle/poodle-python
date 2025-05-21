@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poodle-python"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python SDK for the Poodle's email sending API"
 authors = ["Wilbert Liu <wilbert@usepoodle.com>"]
 readme = "README.md"
