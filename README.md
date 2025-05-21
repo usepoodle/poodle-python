@@ -1,5 +1,9 @@
 # poodle-python
 
+[![PyPI](https://img.shields.io/pypi/v/poodle-python)](https://pypi.org/project/poodle-python/)
+[![Build Status](https://github.com/usepoodle/poodle-python/workflows/CI/badge.svg)](https://github.com/usepoodle/poodle-python/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 Python SDK for Poodle's email sending API.
 
 ## Table of Contents
