@@ -1,4 +1,4 @@
-# poodle-python
+# Poodle Python SDK
 
 [![PyPI](https://img.shields.io/pypi/v/poodle-python)](https://pypi.org/project/poodle-python/)
 [![Build Status](https://github.com/usepoodle/poodle-python/workflows/CI/badge.svg)](https://github.com/usepoodle/poodle-python/actions)
