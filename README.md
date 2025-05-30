@@ -2,7 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/poodle-python)](https://pypi.org/project/poodle-python/)
 [![Build Status](https://github.com/usepoodle/poodle-python/workflows/CI/badge.svg)](https://github.com/usepoodle/poodle-python/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/usepoodle/poodle-python/blob/main/LICENSE)
 
 Python SDK for Poodle's email sending API.
 
@@ -234,8 +234,8 @@ poetry run mypy poodle
 
 ## Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on the process for submitting pull requests and our [Code of Conduct](CODE_OF_CONDUCT.md).
+Contributions are welcome! Please read our [Contributing Guide](https://github.com/usepoodle/poodle-python/blob/main/CONTRIBUTING.md) for details on the process for submitting pull requests and our [Code of Conduct](https://github.com/usepoodle/poodle-python/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/usepoodle/poodle-python/blob/main/LICENSE) file for details.
